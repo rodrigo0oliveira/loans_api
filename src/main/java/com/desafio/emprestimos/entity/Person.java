@@ -1,7 +1,6 @@
 package com.desafio.emprestimos.entity;
 
 import java.io.Serializable;
-import java.math.BigDecimal;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
@@ -34,7 +33,7 @@ public class Person implements Serializable{
 	private String name;
 	
 	@Column(nullable = false)
-	private BigDecimal income;
+	private Double income;
 	
 	@Column(nullable = false)
 	private String location;
@@ -45,7 +44,7 @@ public class Person implements Serializable{
 	public Person() {
 	}
 
-	public Person(Integer age, String cpf, String name, BigDecimal income, String location) {
+	public Person(Integer age, String cpf, String name, Double income, String location) {
 		super();
 		this.age = age;
 		this.cpf = cpf;
@@ -70,7 +69,7 @@ public class Person implements Serializable{
 		return name;
 	}
 
-	public BigDecimal getIncome() {
+	public Double getIncome() {
 		return income;
 	}
 
@@ -94,7 +93,7 @@ public class Person implements Serializable{
 		this.name = name;
 	}
 
-	public void setIncome(BigDecimal income) {
+	public void setIncome(Double income) {
 		this.income = income;
 	}
 

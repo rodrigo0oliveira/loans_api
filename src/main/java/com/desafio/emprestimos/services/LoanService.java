@@ -11,7 +11,7 @@ import com.desafio.emprestimos.entity.PersonDTO;
 public class LoanService {
 	
 	public PersonDTO loan(Person person) {
-		
+	
 		verifyIfLoanIspersonal(person);
 		verifyIfLoanIsGuaranteed(person);
 		verifyIfLoanIsConsignment(person);
@@ -31,7 +31,7 @@ public class LoanService {
 			person.getLoans().add(loan);
 		}
 		else if(person.getIncome()>=3000&&person.getIncome()<=5000
-				&&person.getAge()<30
+				||person.getAge()<30
 				&&person.getLocation().equals("SP")) {
 			person.getLoans().add(loan);
 		}
@@ -43,14 +43,14 @@ public class LoanService {
 			person.getLoans().add(loan);
 		}
 		else if(person.getIncome()>=3000&&person.getIncome()<=5000
-				&&person.getAge()<30
+				||person.getAge()<30
 				&&person.getLocation().equals("SP")) {
 			person.getLoans().add(loan);
 		}
 	}
 	
 	private void verifyIfLoanIsConsignment(Person person) {
-		Loan loan = new Loan(LoanType.CONSIGNMENT,3);
+		Loan loan = new Loan(LoanType.CONSIGNMENT,2);
 		if(person.getIncome()>=5000.00) {
 			person.getLoans().add(loan);
 		}

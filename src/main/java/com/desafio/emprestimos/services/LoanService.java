@@ -12,20 +12,17 @@ public class LoanService {
 	
 	public PersonDTO loan(Person person) {
 	
-		verifyIfLoanIspersonal(person);
-		verifyIfLoanIsGuaranteed(person);
-		verifyIfLoanIsConsignment(person);
+		verifyIfPersonCanGetAPersonalLoan(person);
+		verifyIfPersonCanGetAGuaranteedLoan(person);
+		verifyIfPersonCanGetAConsignmentLoan(person);
 		
 		PersonDTO dto = new PersonDTO(person.getName(),person.getLoans());
 		
 		return dto;
 		
-	}
+	}	
 	
-	
-	
-	
-	private void verifyIfLoanIspersonal(Person person) {
+	public void verifyIfPersonCanGetAPersonalLoan(Person person) {
 		Loan loan = new Loan(LoanType.PERSONAL,4);
 		if(person.getIncome()<=3000.00) {
 			person.getLoans().add(loan);
@@ -37,7 +34,7 @@ public class LoanService {
 		}
 	}
 	
-	private void verifyIfLoanIsGuaranteed(Person person) {
+	public void verifyIfPersonCanGetAGuaranteedLoan(Person person) {
 		Loan loan = new Loan(LoanType.GUARANTEED,3);
 		if(person.getIncome()<=3000.00) {
 			person.getLoans().add(loan);
@@ -49,7 +46,7 @@ public class LoanService {
 		}
 	}
 	
-	private void verifyIfLoanIsConsignment(Person person) {
+	private void verifyIfPersonCanGetAConsignmentLoan(Person person) {
 		Loan loan = new Loan(LoanType.CONSIGNMENT,2);
 		if(person.getIncome()>=5000.00) {
 			person.getLoans().add(loan);

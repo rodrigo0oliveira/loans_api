@@ -53,6 +53,11 @@ public class Loan implements Serializable{
 	public void setInterestRate(Integer interestRate) {
 		this.interestRate = interestRate;
 	}
+
+	@Override
+	public String toString() {
+		return "Loan [type=" + type + ", interestRate=" + interestRate + "]";
+	}
 	
 	
 

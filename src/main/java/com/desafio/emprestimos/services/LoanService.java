@@ -46,7 +46,7 @@ public class LoanService {
 		}
 	}
 	
-	private void verifyIfPersonCanGetAConsignmentLoan(Person person) {
+	public void verifyIfPersonCanGetAConsignmentLoan(Person person) {
 		Loan loan = new Loan(LoanType.CONSIGNMENT,2);
 		if(person.getIncome()>=5000.00) {
 			person.getLoans().add(loan);
